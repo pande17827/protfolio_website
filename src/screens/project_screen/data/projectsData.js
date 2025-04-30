@@ -307,7 +307,7 @@ export const projects = [
       ],
       "trials": "60-day evaluation available"
     }
-  }
+  },
 
 
   {
