@@ -3,7 +3,7 @@ export const projects = [
   // // 
   
 {
-    "id": 101,
+    "id": 1,
     "title": "MediVision AI",
     "description": "AI-powered diagnostic imaging analysis platform",
     "status": "Beta Testing",
@@ -311,7 +311,7 @@ export const projects = [
 
 
   {
-    "id": 101,
+    "id": 2,
     "title": "MediVision AI",
     "description": "AI-powered diagnostic imaging analysis platform",
     "status": "Beta Testing",
