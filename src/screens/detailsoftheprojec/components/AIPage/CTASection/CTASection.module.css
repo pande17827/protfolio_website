@@ -1,0 +1,32 @@
+.cta {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    color: white;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .description {
+    font-size: 1.25rem;
+    margin: 1rem auto 2rem;
+    max-width: 600px;
+    opacity: 0.9;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

@@ -1,0 +1,108 @@
+.footer {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 4rem 0 2rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .logoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .tagline {
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+  
+  .links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .linkGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .linkGroup h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+  }
+  
+  .linkGroup a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .linkGroup a:hover {
+    color: white;
+  }
+  
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .copyright {
+    opacity: 0.7;
+    font-size: 0.9rem;
+  }
+  
+  .social {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .social a {
+    color: white;
+    opacity: 0.7;
+    font-size: 1.25rem;
+    transition: opacity 0.2s;
+  }
+  
+  .social a:hover {
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
+    
+    .links {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .bottom {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }

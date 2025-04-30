@@ -1,0 +1,87 @@
+.gettingStarted {
+    padding: 4rem 0;
+    background-color: white;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .step {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .stepHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .stepNumber {
+    background-color: #2563eb;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .stepTitle {
+    font-size: 1.25rem;
+    color: #1e3a8a;
+    margin: 0;
+  }
+  
+  .stepContent {
+    color: #4b5563;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .codeBlock {
+    background-color: #1e3a8a;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+  }
+  
+  .cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  
+  .cta button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .cta {
+      flex-direction: column;
+    }
+    
+    .codeBlock {
+      font-size: 0.8rem;
+    }
+  }

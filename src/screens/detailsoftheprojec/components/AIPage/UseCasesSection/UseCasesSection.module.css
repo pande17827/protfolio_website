@@ -1,0 +1,137 @@
+.useCases {
+  padding: 5rem 0;
+  background-color: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid #e5e7eb;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cardInner {
+  padding: 2rem;
+  height: 100%;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.icon {
+  color: white;
+  font-size: 1.25rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.examples {
+  margin-top: auto;
+}
+
+.examplesTitle {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.examplesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exampleItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.checkmark {
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .useCases {
+    padding: 3rem 0;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .cardInner {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,124 @@
+.roadmap {
+    padding: 4rem 0;
+    background-color: white;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .timeline {
+    position: relative;
+    margin-top: 3rem;
+    padding-left: 2rem;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e5e7eb;
+  }
+  
+  .milestone {
+    position: relative;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+  }
+  
+  .milestone.completed {
+    border-left-color: #10b981;
+  }
+  
+  .milestone::before {
+    content: '';
+    position: absolute;
+    left: -2.25rem;
+    top: 2rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #2563eb;
+    z-index: 1;
+  }
+  
+  .milestone.completed::before {
+    background-color: #10b981;
+  }
+  
+  .milestoneHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .quarter {
+    font-weight: 600;
+    color: #2563eb;
+  }
+  
+  .milestone.completed .quarter {
+    color: #10b981;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    color: #1e3a8a;
+    margin: 0;
+  }
+  
+  .features {
+    padding-left: 1.25rem;
+    margin: 1rem 0;
+    color: #4b5563;
+  }
+  
+  .features li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+  
+  .status {
+    margin-top: 1rem;
+  }
+  
+  .completedBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+  }
+  
+  .plannedBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #dbeafe;
+    color: #1e40af;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+  }
+  
+  @media (max-width: 768px) {
+    .timeline {
+      padding-left: 1.5rem;
+    }
+    
+    .milestone::before {
+      left: -1.75rem;
+    }
+  }

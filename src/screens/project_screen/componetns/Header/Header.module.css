@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6e45e2, #88d3ce);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.menuButton, .profileButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(110, 69, 226, 0.1);
+}
+
+.menuButton:hover, .profileButton:hover {
+  background: rgba(110, 69, 226, 0.2);
+  transform: scale(1.1);
+}
+
+.menuIcon {
+  font-size: 1.2rem;
+  color: #6e45e2;
+}
+
+.profileInitial {
+  font-weight: 600;
+  color: #6e45e2;
+  font-size: 0.9rem;
+}

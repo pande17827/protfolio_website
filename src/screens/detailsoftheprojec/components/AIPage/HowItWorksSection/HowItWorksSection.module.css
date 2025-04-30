@@ -1,0 +1,80 @@
+.howItWorks {
+    padding: 4rem 0;
+    background-color: #f8fafc;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .step {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .stepNumber {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
+  }
+  
+  .stepContent {
+    flex: 1;
+  }
+  
+  .stepIcon {
+    font-size: 1.5rem;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.25rem;
+    color: #1e3a8a;
+    margin: 0.5rem 0;
+  }
+  
+  .stepDescription {
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .architecture {
+    margin-top: 4rem;
+  }
+  
+  .architectureTitle {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+  }
+  
+  .architectureDiagram {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    color: #6b7280;
+  }
+  
+  @media (max-width: 768px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }

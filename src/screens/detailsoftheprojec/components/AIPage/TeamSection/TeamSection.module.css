@@ -1,0 +1,94 @@
+.team {
+    padding: 4rem 0;
+    background-color: #f8fafc;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .memberCard {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .memberCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  }
+  
+  .memberPhoto {
+    height: 200px;
+    background-color: #e0f2fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .photoPlaceholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #2563eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .memberInfo {
+    padding: 1.5rem;
+  }
+  
+  .memberName {
+    font-size: 1.25rem;
+    color: #1e3a8a;
+    margin: 0 0 0.25rem;
+  }
+  
+  .memberRole {
+    color: #2563eb;
+    font-weight: 500;
+    margin: 0 0 1rem;
+  }
+  
+  .memberBio {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .socialLink {
+    color: #6b7280;
+    font-size: 1.25rem;
+    transition: color 0.2s;
+  }
+  
+  .socialLink:hover {
+    color: #2563eb;
+  }
+  
+  @media (max-width: 768px) {
+    .teamGrid {
+      grid-template-columns: 1fr;
+    }
+  }

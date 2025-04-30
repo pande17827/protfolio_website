@@ -1,0 +1,309 @@
+/* ProjectCard.module.css */
+/* Base Card Styles */
+.card {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Header Styles */
+.cardHeader {
+  margin-bottom: 16px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.metaData {
+  display: flex;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.status.In-Progress {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status.Completed {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.status.Overdue {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.category {
+  background: #f3e5f5;
+  color: #7b1fa2;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* Description */
+.description {
+  color: #546e7a;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Progress Section */
+.progressContainer {
+  margin-bottom: 20px;
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: #607d8b;
+}
+
+.progressBar {
+  height: 8px;
+  background: #eceff1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #6e45e2, #88d3ce);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Metrics */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.metricItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #607d8b;
+}
+
+.metricIcon {
+  color: #6e45e2;
+  font-size: 0.9rem;
+}
+
+/* Chart */
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 100px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.bar {
+  flex: 1;
+  background: linear-gradient(to top, #6e45e2, #88d3ce);
+  border-radius: 4px 4px 0 0;
+  min-width: 8px;
+  transition: height 0.5s ease;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+}
+
+.member {
+  position: relative;
+  margin-right: -8px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #6e45e2;
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border: 2px solid white;
+}
+
+.moreCount {
+  background: white;
+  border: 2px solid #eceff1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: #607d8b;
+}
+
+.deadline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #607d8b;
+}
+
+.calendarIcon {
+  color: #6e45e2;
+}
+
+.urgent {
+  color: #d32f2f;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+/* Bookmark Button */
+.bookmarkButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #cfd8dc;
+  transition: all 0.2s ease;
+  padding: 4px;
+}
+
+.bookmarkButton:hover {
+  color: #FF9F43;
+}
+
+.bookmarked {
+  color: #FF9F43;
+  fill: #FF9F43;
+}
+
+/* Color Variants */
+.accent-purple {
+  border-color: #6e45e2;
+}
+
+.accent-blue {
+  border-color: #2196F3;
+}
+
+.accent-green {
+  border-color: #4CAF50;
+}
+
+/* Priority Indicators */
+.high {
+  border-left: 3px solid #d32f2f;
+}
+
+.medium {
+  border-left: 3px solid #FF9F43;
+}
+
+.low {
+  border-left: 3px solid #28C76F;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    min-height: auto;
+  }
+  
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}
+/* Add these new styles to your existing CSS */
+.thumbnailContainer {
+  width: 100%;
+  height: 160px;
+  margin: 15px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.03);
+}
+
+/* Remove the chart styles and add this to replace them */
+.description {
+  margin-top: 5px;
+}
+
+/* Adjust the progress container margin */
+.progressContainer {
+  margin: 18px 0;
+}
+.card {
+  cursor: pointer;
+  /* other styles */
+}
+
+.card:focus {
+  outline: 2px solid var(--primary-color);
+  /* or your preferred focus style */
+}

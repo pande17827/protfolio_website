@@ -1,0 +1,491 @@
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { FiCalendar, FiUsers, FiCheckCircle, FiFlag, FiStar, FiAlertTriangle, FiArrowLeft } from 'react-icons/fi';
+import { projects } from '../data/projectsData'; // Import your projects data
+import styles from './ProjectDetails.module.css';
+
+const ProjectDetailsPage = () => {
+  const { id } = useParams();
+  const project = projects.find(p => p.id === parseInt(id));
+
+  if (!project) {
+    return <div className={styles.notFound}>Project not found</div>;
+  }
+
+  // Calculate days remaining
+  const daysRemaining = Math.ceil(
+    (new Date(project.deadline) - new Date()) / (1000 * 60 * 60 * 24)
+  );
+
+  // Find next and previous project IDs for navigation
+  const currentIndex = projects.findIndex(p => p.id === parseInt(id));
+  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
+  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+
+  return (
+    <div className={styles.container}>
+      {/* Back button */}
+      <Link to="/projects" className={styles.backButton}>
+        <FiArrowLeft /> Back to Projects
+      </Link>
+
+      {/* Project header */}
+      <div className={styles.header}>
+        <div className={styles.titleRow}>
+          <h1>{project.title}</h1>
+          <div className={styles.bookmark}>
+            <FiStar className={project.bookmarked ? styles.bookmarked : ''} />
+          </div>
+        </div>
+        
+        <div className={styles.metaData}>
+          <span className={`${styles.status} ${styles[project.status]}`}>
+            {project.status}
+          </span>
+          <span className={styles.category}>
+            {project.category}
+          </span>
+          <span className={`${styles.priority} ${styles[project.priority]}`}>
+            {project.priority} priority
+          </span>
+        </div>
+      </div>
+
+      <div className={styles.content}>
+        {/* Left column */}
+        <div className={styles.mainContent}>
+          {/* Thumbnail */}
+          {project.thumbnail && (
+            <div className={styles.thumbnail}>
+              <img src={project.thumbnail} alt={project.title} />
+            </div>
+          )}
+
+          {/* Description */}
+          <section className={styles.section}>
+            <h2>Description</h2>
+            <p>{project.description}</p>
+          </section>
+
+          {/* Progress */}
+          <section className={styles.section}>
+            <h2>Project Progress</h2>
+            <div className={styles.progressContainer}>
+              <div className={styles.progressLabels}>
+                <span>{project.progress}% complete</span>
+                <span className={daysRemaining <= 3 ? styles.urgent : ''}>
+                  {daysRemaining > 0 ? `${daysRemaining} days remaining` : 'Overdue'}
+                </span>
+              </div>
+              <div className={styles.progressBar}>
+                <div 
+                  className={styles.progressFill}
+                  style={{ width: `${project.progress}%` }}
+                />
+              </div>
+            </div>
+
+            <div className={styles.metricsGrid}>
+              <div className={styles.metric}>
+                <FiCheckCircle className={styles.metricIcon} />
+                <div>
+                  <h3>Tasks</h3>
+                  <p>{project.tasksCompleted} of {project.totalTasks} completed</p>
+                </div>
+              </div>
+              <div className={styles.metric}>
+                <FiFlag className={styles.metricIcon} />
+                <div>
+                  <h3>Milestones</h3>
+                  <p>{project.completedMilestones} of {project.totalMilestones} achieved</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* Right sidebar */}
+        <div className={styles.sidebar}>
+          {/* Team section */}
+          <section className={styles.section}>
+            <h2>Team Members</h2>
+            <ul className={styles.teamList}>
+              {project.team.map((member, index) => (
+                <li key={index} className={styles.teamMember}>
+                  <div className={styles.avatar}>
+                    {member.charAt(0)}
+                  </div>
+                  <span>{member}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Timeline section */}
+          <section className={styles.section}>
+            <h2>Timeline</h2>
+            <div className={styles.timeline}>
+              <div className={styles.timelineItem}>
+                <FiCalendar className={styles.timelineIcon} />
+                <div>
+                  <h3>Deadline</h3>
+                  <p>{new Date(project.deadline).toLocaleDateString()}</p>
+                  {daysRemaining <= 3 && (
+                    <p className={styles.urgent}>
+                      <FiAlertTriangle /> {daysRemaining > 0 ? 'Due soon!' : 'Overdue!'}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Project navigation */}
+          <section className={styles.section}>
+            <h2>Other Projects</h2>
+            <div className={styles.projectNav}>
+              {prevProject && (
+                <Link to={`/projects/${prevProject.id}`} className={styles.navLink}>
+                  <span>Previous</span>
+                  <strong>{prevProject.title}</strong>
+                </Link>
+              )}
+              {nextProject && (
+                <Link to={`/projects/${nextProject.id}`} className={styles.navLink}>
+                  <span>Next</span>
+                  <strong>{nextProject.title}</strong>
+                </Link>
+              )}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProjectDetailsPage;
+
+
+
+
+
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .backButton:hover {
+    color: var(--primary);
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+  }
+  
+  .titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .titleRow h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--text-primary);
+  }
+  
+  .bookmark {
+    color: var(--gray-400);
+    font-size: 1.5rem;
+  }
+  
+  .bookmark .bookmarked {
+    color: var(--accent-yellow);
+    fill: var(--accent-yellow);
+  }
+  
+  .metaData {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .status.Completed {
+    background-color: var(--accent-green-light);
+    color: var(--accent-green-dark);
+  }
+  
+  .status.In-Progress {
+    background-color: var(--accent-blue-light);
+    color: var(--accent-blue-dark);
+  }
+  
+  .category {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: var(--gray-100);
+    color: var(--gray-700);
+  }
+  
+  .priority {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .priority.high {
+    background-color: var(--accent-red-light);
+    color: var(--accent-red-dark);
+  }
+  
+  .priority.medium {
+    background-color: var(--accent-orange-light);
+    color: var(--accent-orange-dark);
+  }
+  
+  .priority.low {
+    background-color: var(--accent-green-light);
+    color: var(--accent-green-dark);
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+  
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .section {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+  }
+  
+  .thumbnail {
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .progressContainer {
+    margin-bottom: 1.5rem;
+  }
+  
+  .progressLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .progressBar {
+    height: 0.5rem;
+    background-color: var(--gray-100);
+    border-radius: 0.25rem;
+    overflow: hidden;
+  }
+  
+  .progressFill {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 0.25rem;
+    transition: width 0.3s ease;
+  }
+  
+  .urgent {
+    color: var(--accent-red);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .metric {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .metricIcon {
+    font-size: 1.5rem;
+    color: var(--primary);
+  }
+  
+  .metric h3 {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+  
+  .metric p {
+    margin: 0.25rem 0 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  
+  .teamList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .teamMember {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .timelineItem {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .timelineIcon {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-top: 0.25rem;
+  }
+  
+  .timelineItem h3 {
+    margin: 0 0 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+  
+  .timelineItem p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .projectNav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .navLink {
+    text-decoration: none;
+    color: var(--text-primary);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .navLink:hover {
+    background-color: var(--gray-50);
+  }
+  
+  .navLink span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+  
+  .navLink strong {
+    font-weight: 500;
+  }
+  
+  .notFound {
+    text-align: center;
+    padding: 4rem;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
+    
+    .metricsGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+
+
+

@@ -1,0 +1,55 @@
+.aiPage {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Section spacing consistency */
+  section {
+    scroll-margin-top: 80px; /* Adjust based on your header height */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    section {
+      scroll-margin-top: 60px;
+    }
+  }
+  .aiPage {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .mainContent {
+    flex: 1;
+    margin-left: 250px; /* Same as sidebar width */
+    transition: margin 0.3s ease;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 1024px) {
+    .mainContent {
+      margin-left: 0;
+    }
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Section spacing consistency */
+  section {
+    scroll-margin-top: 80px; /* Adjust based on your header height */
+  }
+  
+  @media (max-width: 768px) {
+    section {
+      scroll-margin-top: 60px;
+    }
+  }
