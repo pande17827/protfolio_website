@@ -400,26 +400,6 @@ export const projects = [
 
 
 
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-
 ];
 
 
