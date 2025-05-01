@@ -2,24 +2,26 @@ export const projects = [
   // Previous projects (1-6)...
   // // 
   {
+    // thumbnail: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
 
     // card details
-    id: 25,
-    title: "Recommendation System",
-    description: "Personalized content suggestions for media platform",
-    status: "Completed",
-    color: "accent-purple",
-    priority: "low",
-    category: "Machine Learning",
+    id: "1",
+    title: "YouTube Transcript Summarizer",
+    description: "A Streamlit-based app that extracts a YouTube video's transcript and generates a summarized version using a local LLaMA3.2 1B model.",
+    status: "completed",
+    color: "blue",
+    priority: "medium",
+    category: "AI Application",
     progress: 100,
-    deadline: "2023-06-15",
-    tasksCompleted: 45,
-    totalTasks: 45,
-    completedMilestones: 5,
-    totalMilestones: 5,
+    deadline: "2024-12-01",
+    tasksCompleted: 8,
+    totalTasks: 8,
+    completedMilestones: 3,
+    totalMilestones: 3,
     bookmarked: true,
     thumbnail: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    team: ["Sam Wilson", "Bucky Barnes"],
+    team: ["You"],
+  
 
     // detail report of the project
     overview: `This project focuses on developing a recommendation system using machine learning algorithms
