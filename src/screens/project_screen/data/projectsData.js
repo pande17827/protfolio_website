@@ -1747,7 +1747,7 @@ export const projects = [
 
 {
     // Card Details
-    id: 78,
+    id: 79,
     title: "MediScan AI",
     description: "AI-driven diagnostic support system for radiologists",
     status: "Clinical Trials",
